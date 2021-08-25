@@ -16,15 +16,16 @@ pipeline {
 				echo "Integration Test"
 			}
 		}
-	} post  {
+	} 
+	post  {
 		always {
-			echo 'Nice doning ...'
+			echo "Nice doning ..."
 		}
 		success {
-			echo 'Successed'
+			echo "Successed"
 		}
 		failure {
-			echo 'Failure'
+			echo "Failure"
 		}
 	}
 }
