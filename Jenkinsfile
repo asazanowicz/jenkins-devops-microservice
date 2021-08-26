@@ -42,7 +42,7 @@ pipeline {
 			steps {
 				//"docker build -t asazanowicz/currency-exchange-devops:$env.BUILD_TAG"
 				script  {
-					dockerImage = docker.build("asazanowicz/currency-exchange-devops")
+					dockerImage = docker.build("asazanowicz/currency-exchange-devops:${env.BUILD_NUMBER}")
 				}
 			}
 		}
@@ -50,7 +50,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'dockerhub') {
-						dockerImage.push("$env.BUILD_NUMBER")
+						dockerImage.push()
 						dockerImage.push('latest')
 					}
 				}
