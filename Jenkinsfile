@@ -50,7 +50,7 @@ pipeline {
 			steps {
 				script {
 					docker.withRegistry('', 'dockerhub') {
-						dockerImage.push("$env.BUILD_TAG")
+						dockerImage.push("$env.BUILD_NUMBER")
 						dockerImage.push('latest')
 					}
 				}
